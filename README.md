@@ -1,6 +1,7 @@
-# stb-truetype-example
+# Render Font Glyphs
 
-An example of how to use the public domain TrueType rendering library stb_truetype by Sean Barret.
+Example of how to use the public domain TrueType rendering library stb_truetype by Sean Barret.
+This repository is a try for rendering persian characters.
 
 stb_truetype is a public domain C truetype rasterization library.
 
