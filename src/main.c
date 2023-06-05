@@ -1,6 +1,8 @@
 /* Created By: Justin Meiners (2013) */
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
+#include "../inc/reshaper.h"
 
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "../stb_image_write.h" /* http://nothings.org/stb/stb_image_write.h */
@@ -22,7 +24,7 @@ void readFont(const char *path, void **data) {
 int main(int argc, const char *argv[]) {
   /* load font file */
   unsigned char *fontBuffer;
-  readFont("font/cmunrm.ttf", (void **) &fontBuffer);
+  readFont("font/Vazirmatn-Regular.ttf", (void **) &fontBuffer);
 
   /* prepare font */
   stbtt_fontinfo info;
@@ -40,7 +42,10 @@ int main(int argc, const char *argv[]) {
   /* calculate font scaling */
   float scale = stbtt_ScaleForPixelHeight(&info, l_h);
 
-  char *word = "the quick brown fox";
+  int wordLen = 9;
+  uint16_t arabicWord[9] = {0x0633, 0x0644, 0x0627, 0x0645, ' ', 0x062F, 0x0646, 0x06CC, 0x0627};
+  uint16_t word[9] = {0x00};
+  convertArabic(arabicWord, wordLen, word);
 
   int x = 0;
 
@@ -51,7 +56,7 @@ int main(int argc, const char *argv[]) {
   descent = roundf(descent * scale);
 
   int i;
-  for (i = 0; i < strlen(word); ++i) {
+  for (i = wordLen-1; i >= 0; --i) {
     /* how wide is this character */
     int ax;
     int lsb;

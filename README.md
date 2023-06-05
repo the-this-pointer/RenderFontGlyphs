@@ -3,6 +3,9 @@
 Example of how to use the public domain TrueType rendering library stb_truetype by Sean Barret.
 This repository is a try for rendering persian characters.
 
+The needed code for reshaping codepoints to font glyphs is taken from [here](https://github.com/soimy/arabic-persian-reshaper).
+The persian font is taken from [here](https://rastikerdar.github.io/vazirmatn/en).
+
 stb_truetype is a public domain C truetype rasterization library.
 
 [stb_truetype](http://nothings.org/stb/stb_truetype.h)

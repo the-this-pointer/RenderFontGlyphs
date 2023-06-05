@@ -3,4 +3,4 @@ project(RenderFontGlyphs C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(RenderFontGlyphs src/main.c)
+add_executable(RenderFontGlyphs src/main.c src/reshaper.c)
